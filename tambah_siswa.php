@@ -34,6 +34,34 @@ if(isset($_POST["submit"])){
                 <label for="lkelas">kelas :</label>
                 <input type="text" name="kel" id="lkelas" required>
             </li>
+            <li>
+                <label for="alamat">Alamat :</label>
+                <input type="text" name="al" id="alamat" required>
+            </li>
+            <li>
+                <label for="jurusan">Jurusan :</label>
+                <input type="text" name="jur" id="jurusan" required>
+            </li>
+            <li>
+                <label for="status">Status :</label>
+                <input type="text" name="stat" id="status" required>
+            </li>
+            <li>
+                <label for="sekolah">Sekolah :</label>
+                <input type="text" name="sek" id="sekolah" required>
+            </li>
+            <li>
+                <label for="gender">Gender :</label>
+                <input type="text" name="gen" id="gender" required>
+            </li>
+            <li>
+                <label for="Agama">Agama :</label>
+                <input type="text" name="agam" id="Agama" required>
+            </li>
+            <li>
+                <label for="nama_bapa">nama ayah :</label>
+                <input type="text" name="bapa" id="nama_bapa" required>
+            </li>
             <li><button type="submit" name="submit">Tambah</button></li>
         </ul>
     </form>    
