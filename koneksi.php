@@ -1,3 +1,3 @@
 <?php
-    $db = mysqli_connect('localhost','root','','xiirpl4');
-    ?>
+$db =mysqli_connect('localhost','root','','xiirpl4');
+?>
