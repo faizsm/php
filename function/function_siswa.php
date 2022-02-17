@@ -1,4 +1,4 @@
-<?php require "koneksi.php";
+<?php require "../koneksi.php";
     function query($query){
         
         global $db;
