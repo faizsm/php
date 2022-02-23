@@ -1,22 +1,12 @@
 <?php
-require '../function/function_siswa.php';
-if(isset($_POST["submit"])){
-    if(tambah_siswa($_POST)>0){
-        echo"
-        <script>
-            alert('data berhasil ditambah');
-            document.location.href = 'siswa.php';
-        </script>";
-
-    }else{
-        echo"
-        <script>
-            alert('data gagal ditambahkan');
-            document.location.href = 'siswa.php';
-            </script>";
-    }
+require "../koneksi.php";
+require "../function/function_jurusan.php";
+$jurusan=query("SELECT*FROM jurusan");
+if (isset($_POST["cari"])){
+    $jurusan=cari_jurusan($_POST["keyword"]);
 }
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -27,22 +17,21 @@ if(isset($_POST["submit"])){
 
     <!-- Bootstrap CSS -->
     <link href="../asset/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <title>Hello, world!</title>
   </head>
   <body>
-  <div class="container">
-    <h1>Selamat Datang</h1>
+    <div class="container">
+  <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Home</a>
+    <a class="navbar-brand" href="../index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Master Data
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -57,37 +46,37 @@ if(isset($_POST["submit"])){
     </div>
   </div>
 </nav>
-<h1>Tambah Data Siswa</h1>
-<form action="" method="post">
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" name= "nisn"id="nisn" placeholder="nisn">
-  <label for="nisn">NISN</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "nama"id="nama" placeholder="nama">
-  <label for="nama">NAMA</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "jenis_kelamin"id="jenis_kelamin" placeholder="jenis_kelamin">
-  <label for="jenis_kelamin">JENIS KELAMIN</label>
-</div>
-<select class="form-select" aria-label="Default select example" name="jurusan" id="jurusan">
-  <option selected>Pilih Jurusan</option>
-  <option value="1">Rpl</option>
-  <option value="2">Tkj</option>
-  <option value="3">Tbsm</option>
-  <option value="4">Wibu</option>
-</select>
-<br>
-<select class="form-select" aria-label="Default select example" name="sekolah" id="sekolah">
-  <option selected>Asal Sekolah</option>
-  <option value="1">SMKN 4 TASIKMALAYA</option>
-  <option value="2">SMKN 2 TASIKMALAYA</option>
-  <option value="3">SMKN 1 TASIKMALAYA</option>
-  <option value="4">SMKN 3 TASIKMALAYA</option>
-</select><br>
-<button type="submit" name="submit" class="btn btn-outline-dark">Tambah Data</button>
-</form>
+<a class="btn mt-3 mb-3  btn-dark" href="tambah_jurusan.php" role="button">Tambah Data Jurusan</a>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <form class="d-flex" action="" method="post">
+      <input class="form-control me-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit" name="cari">Search</button>
+    </form>
+  </div>
+</nav>
+
+<table  class="table table-dark table-striped">
+  <thead>
+      <?php $i = 1; ?>
+    <tr class="table-dark">
+      <th scope="col">Id Jurusan</th>
+      <th scope="col">Nama_jurusan</th>
+      <th scope="col">Aksi</th>
+    </tr>
+  </thead>
+  <?php foreach ($jurusan as $s): ?>
+  <tbody>
+    <tr>
+      <th scope="row"><?php echo $i; ?></th>
+      <td><?= $s ["Nama_jurusan"]; ?></td>
+        <td><a class="btn btn-primary" href="ubah_jurusan.php?id=<?=$s["id_jurusan"];?>" role="button">Ubah</a>
+            <a class="btn btn-primary" href="jurusan_hapus.php?id=<?=$s["id_jurusan"];?>" role="button">Hapus</a></td>
+    </td>
+  </tbody>
+    <?php $i++; ?> 
+    <?php endforeach;?>
+</table>
 </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

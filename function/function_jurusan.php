@@ -13,18 +13,10 @@
 
     function tambah_siswa($data){
         global$db;
-        $na =$data["nisn"];
-        $las=$data["nama"];
-        $mat=$data["jenis_kelamin"];
-        $jurus=$data["jurusan"];
-        $tus=$data["sekolah"];
-    $tambah="INSERT INTO siswa VALUES(
+        $na =$data["nama_jurusan"];
+    $tambah="INSERT INTO jurusan VALUES(
         '',
-        '$na',
-        '$las',
-        '$mat',
-        '$jurus',
-        '$tus'
+        '$na'
     )";
             
             mysqli_query($db,$tambah);

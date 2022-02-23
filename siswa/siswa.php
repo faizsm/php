@@ -1,7 +1,15 @@
 <?php
 require "../koneksi.php";
 require "../function/function_siswa.php";
-$siswa=query("SELECT*FROM siswa");
+$siswa=query("SELECT 
+                      a.id,
+                      a.nisn,
+                      a.nama,
+                      a.jenis_kelamin,
+                      b.Nama_jurusan,
+                      c.nama_sekolah
+                      FROM siswa AS a JOIN jurusan AS b ON a.id_jurusan = b.id_jurusan
+                      JOIN sekolah AS c ON a.id_sekolah = c.id_sekolah");
 if (isset($_POST["cari"])){
     $siswa=cari_siswa($_POST["keyword"]);
 }
@@ -17,28 +25,30 @@ if (isset($_POST["cari"])){
 
     <!-- Bootstrap CSS -->
     <link href="../asset/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <title>Hello, world!</title>
   </head>
   <body>
     <div class="container">
-    <h1> DATA SISWA SMKN 907 MARS</h1>
+  <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Aplikasi</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="../index.php">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Master Data
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="../jurusan/jurusan.php">Data Jurusan</a></li>
+            <li><a class="dropdown-item" href="../sekolah/sekolah.php">Data Sekolah</a></li>
+          </ul>
+          <li class="nav-item">
+          <a class="nav-link active" href="siswa/siswa.php">Data Siswa</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../siswa/siswa.php">Siswa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../guru/guru.php">Guru</a>
         </li>
       </ul>
     </div>
@@ -59,15 +69,11 @@ if (isset($_POST["cari"])){
       <?php $i = 1; ?>
     <tr class="table-dark">
       <th scope="col">No</th>
+      <th scope="col">Nisn</th>
       <th scope="col">Nama</th>
-      <th scope="col">Kelas</th>
-      <th scope="col">alamat</th>
-      <th scope="col">jurusan</th>
-      <th scope="col">status</th>
-      <th scope="col">sekolah</th>
-      <th scope="col">gender</th>
-      <th scope="col">agama</th>
-      <th scope="col">nama_bapa</th>
+      <th scope="col">jenis_kelamin</th>
+      <th scope="col">Jurusan</th>
+      <th scope="col">Sekolah</th>
       <th scope="col">Aksi</th>
     </tr>
   </thead>
@@ -75,15 +81,11 @@ if (isset($_POST["cari"])){
   <tbody>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
-      <td><?= $s ["nama"]; ?></td>
-        <td><?= $s ["kelas"]; ?></td>
-        <td><?= $s ["alamat"]; ?></td>
-        <td><?= $s ["jurusan"];?></td>
-        <td><?= $s ["stat"];?></td>
-        <td><?= $s ["sekolah"];?></td>
-        <td><?= $s ["gender"];?></td>
-        <td><?= $s ["Agama"];?></td>
-        <td><?= $s ["nama_bapa"]; ?></td>
+      <td><?= $s ["nisn"]; ?></td>
+        <td><?= $s ["nama"]; ?></td>
+        <td><?= $s ["jenis_kelamin"]; ?></td>
+        <td><?= $s ["Nama_jurusan"];?></td>
+        <td><?= $s ["nama_sekolah"];?></td>
         <td><a class="btn btn-primary" href="ubah_siswa.php?id=<?=$s["id"];?>" role="button">Ubah</a>
             <a class="btn btn-primary" href="siswa_hapus.php?id=<?=$s["id"];?>" role="button">Hapus</a></td>
     </td>
@@ -91,7 +93,6 @@ if (isset($_POST["cari"])){
     <?php $i++; ?> 
     <?php endforeach;?>
 </table>
-
 </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

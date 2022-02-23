@@ -1,18 +1,18 @@
 <?php
-require '../function/function_siswa.php';
+require '../function/function_jurusan.php';
 if(isset($_POST["submit"])){
     if(tambah_siswa($_POST)>0){
         echo"
         <script>
             alert('data berhasil ditambah');
-            document.location.href = 'siswa.php';
+            document.location.href = 'jurusan.php';
         </script>";
 
     }else{
         echo"
         <script>
             alert('data gagal ditambahkan');
-            document.location.href = 'siswa.php';
+            document.location.href = 'jurusan.php';
             </script>";
     }
 }
@@ -32,10 +32,10 @@ if(isset($_POST["submit"])){
   </head>
   <body>
   <div class="container">
-    <h1>Selamat Datang</h1>
+    <h1>Tambahkan</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Home</a>
+    <a class="navbar-brand" href="../index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -57,35 +57,12 @@ if(isset($_POST["submit"])){
     </div>
   </div>
 </nav>
-<h1>Tambah Data Siswa</h1>
+<h1>Tambah Jurusan</h1>
 <form action="" method="post">
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" name= "nisn"id="nisn" placeholder="nisn">
-  <label for="nisn">NISN</label>
+  <input type="text" class="form-control" name= "nama_jurusan"id="nama_jurusan" placeholder="nama_jurusan">
+  <label for="nama_jurusan">NAMA JURUSAN</label>
 </div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "nama"id="nama" placeholder="nama">
-  <label for="nama">NAMA</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "jenis_kelamin"id="jenis_kelamin" placeholder="jenis_kelamin">
-  <label for="jenis_kelamin">JENIS KELAMIN</label>
-</div>
-<select class="form-select" aria-label="Default select example" name="jurusan" id="jurusan">
-  <option selected>Pilih Jurusan</option>
-  <option value="1">Rpl</option>
-  <option value="2">Tkj</option>
-  <option value="3">Tbsm</option>
-  <option value="4">Wibu</option>
-</select>
-<br>
-<select class="form-select" aria-label="Default select example" name="sekolah" id="sekolah">
-  <option selected>Asal Sekolah</option>
-  <option value="1">SMKN 4 TASIKMALAYA</option>
-  <option value="2">SMKN 2 TASIKMALAYA</option>
-  <option value="3">SMKN 1 TASIKMALAYA</option>
-  <option value="4">SMKN 3 TASIKMALAYA</option>
-</select><br>
 <button type="submit" name="submit" class="btn btn-outline-dark">Tambah Data</button>
 </form>
 </div>

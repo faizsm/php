@@ -33,23 +33,27 @@ if (ubah_siswa($_POST)>0){
     <title>Hello, world!</title>
   </head>
   <body>
-<div class="container">
+  <div class="container">
+    <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Aplikasi</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="index.php">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Master Data
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="../jurusan/jurusan.php">Data Jurusan</a></li>
+            <li><a class="dropdown-item" href="../jurusan/sekolah.php">Data Sekolah</a></li>
+          </ul>
+          <li class="nav-item">
+          <a class="nav-link active" href="siswa/siswa.php">Data Siswa</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../siswa/siswa.php">Siswa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../guru/guru.php">Guru</a>
         </li>
       </ul>
     </div>
@@ -59,40 +63,24 @@ if (ubah_siswa($_POST)>0){
 <form action="" method="post">
 <input type="hidden" name= "id" value="<?=$sis ["id"];?>">
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" name= "ma"id="lnama" placeholder="nama" value ="<?=$sis ["nama"];?>">
-  <label for="lnama">Nama</label>
+  <input type="text" class="form-control" name= "nisn"id="nisn" placeholder="nisn" value ="<?=$sis ["nisn"];?>">
+  <label for="nisn">NISN</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "kel"id="lkelas" placeholder="kelas" value ="<?=$sis ["kelas"];?>">
-  <label for="lkelas">kelas</label>
+  <input type="text" class="form-control"  name= "nama"id="nama" placeholder="nama" value ="<?=$sis ["nama"];?>">
+  <label for="nama">NAMA</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "al"id="alamat" placeholder="alamat" value ="<?=$sis ["alamat"];?>">
-  <label for="alamat">Alamat</label>
+  <input type="text" class="form-control"  name= "jenis_kelamin"id="jenis_kelamin" placeholder="jenis_kelamin" value ="<?=$sis ["jenis_kelamin"];?>">
+  <label for="jenis_kelamin">JENIS KELAMIN</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "jur"id="jurusan" placeholder="jurusan" value ="<?=$sis ["jurusan"];?>">
+  <input type="text" class="form-control"  name= "jurusan"id="jurusan" placeholder="jurusan" value ="<?=$sis ["id_jurusan"];?>">
   <label for="jurusan">jurusan</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "stat"id="status" placeholder="status" value ="<?=$sis ["stat"];?>">
-  <label for="status">Status</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "sek"id="sekolah" placeholder="sekolah" value ="<?=$sis ["sekolah"];?>">
-  <label for="sekolah">Sekolah</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "gen"id="gender" placeholder="gender" value ="<?=$sis ["gender"];?>">
-  <label for="gender">Gender</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "agam"id="Agama" placeholder="agama" value ="<?=$sis ["Agama"];?>">
-  <label for="Agama">Agama</label> 
-</div>
-<div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "bapa" id="nama_bapa" placeholder="nama_bapa" value ="<?=$sis ["nama_bapa"];?>">
-  <label for="nama_bapa">Nama Orang Tua</label>
+  <input type="text" class="form-control"  name= "sekolah"id="sekolah" placeholder="sekolah" value ="<?=$sis ["id_sekolah"];?>">
+  <label for="sekolah">SEKOLAH</label>
 </div>
 <button type="submit" name="submit" class="btn btn-outline-dark">UBAH</button>
 </form>
