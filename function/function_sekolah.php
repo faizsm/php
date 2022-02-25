@@ -11,10 +11,10 @@
            return $rows;
     }
 
-    function tambah_siswa($data){
+    function tambah_sekolah($data){
         global$db;
-        $na =$data["nama_jurusan"];
-    $tambah="INSERT INTO jurusan VALUES(
+        $na =$data["nama_sekolah"];
+    $tambah="INSERT INTO sekolah VALUES(
         '',
         '$na'
     )";
@@ -23,30 +23,30 @@
             return mysqli_affected_rows($db);
     }
     
-    function id_jurusan($id){
-        return query("SELECT*FROM jurusan WHERE id_jurusan = $id")[0];
+    function id_sekolah($id){
+        return query("SELECT*FROM sekolah WHERE id_sekolah = $id")[0];
     }
-    function ubah_jurusan($data){
+    function ubah_sekolah($data){
         global $db;
         $id=$data["id"];
-        $na =$data["nama_jurusan"];
-        $ubah = "UPDATE jurusan SET
-            nama_jurusan='$na'
+        $na =$data["nama_sekolah"];
+        $ubah = "UPDATE sekolah SET
+            nama_sekolah='$na'
 
-            WHERE id_jurusan ='$id' ";
+            WHERE id_sekolah ='$id' ";
             mysqli_query($db,$ubah);
             return mysqli_affected_rows($db);
     }
 
-    function hapus_jurusan($id){
+    function hapus_sekolah($id){
         global $db;
-        mysqli_query($db,"DELETE FROM jurusan WHERE id_jurusan = $id");
+        mysqli_query($db,"DELETE FROM sekolah WHERE id_sekolah = $id");
         return mysqli_affected_rows($db);
     }
 
     function cari_jurusan($keyword){
-        $cari = "SELECT * FROM jurusan WHERE
-        nama_jurusan like '%$keyword%' ";
+        $cari = "SELECT * FROM sekolah WHERE
+        nama_sekolah like '%$keyword%' ";
         return query($cari);
     }
 ?>

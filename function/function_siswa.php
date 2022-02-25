@@ -47,8 +47,7 @@
             nama='$las',
             jenis_kelamin='$mat',
             jurusan='$jurus',
-            sekolah='$tus',
-            sekolah='$kolah'
+            sekolah='$tus'
 
             WHERE id ='$id' ";
             mysqli_query($db,$ubah);
@@ -63,15 +62,11 @@
 
     function cari_siswa($keyword){
         $cari = "SELECT * FROM siswa WHERE
+        nisn like '%$keyword%' OR
         nama like '%$keyword%' OR
-        kelas like '%$keyword%' OR
-        alamat like '%$keyword%'OR
-        jurusan like '%$keyword%' OR
-        stat like '%$keyword%' OR
-        sekolah like '%$keyword%' OR
-        gender like '%$keyword%' OR
-        Agama like '%$keyword%' OR
-        nama_bapa like '%$keyword%' ";
+        jenis_kelamin like '%$keyword%'OR
+        id_jurusan like '%$keyword%' OR
+        id_sekolah like '%$keyword%' ";
         return query($cari);
     }
 ?>

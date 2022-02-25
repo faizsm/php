@@ -35,7 +35,7 @@ if(isset($_POST["submit"])){
     <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Home</a>
+    <a class="navbar-brand" href="../index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,7 +76,7 @@ if(isset($_POST["submit"])){
   <option value="1">Rpl</option>
   <option value="2">Tkj</option>
   <option value="3">Tbsm</option>
-  <option value="4">Wibu</option>
+  <option value="4">Perhotelan</option>
 </select>
 <br>
 <select class="form-select" aria-label="Default select example" name="sekolah" id="sekolah">
