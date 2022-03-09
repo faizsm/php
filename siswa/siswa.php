@@ -6,7 +6,7 @@ $siswa=query("SELECT
                       a.nisn,
                       a.nama,
                       a.jenis_kelamin,
-                      b.nama_jurusan,
+                      b.Nama_jurusan,
                       c.nama_sekolah
                       FROM siswa AS a JOIN jurusan AS b ON a.id_jurusan = b.id_jurusan
                       JOIN sekolah AS c ON a.id_sekolah = c.id_sekolah");
@@ -32,7 +32,6 @@ if (isset($_POST["cari"])){
   <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    
     <a class="navbar-brand" href="../index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -48,7 +47,7 @@ if (isset($_POST["cari"])){
             <li><a class="dropdown-item" href="../sekolah/sekolah.php">Data Sekolah</a></li>
           </ul>
           <li class="nav-item">
-          <a class="nav-link active" href="siswa/siswa.php">Data Siswa</a>
+          <a class="nav-link active" href="../siswa/siswa.php">Data Siswa</a>
         </li>
         </li>
       </ul>
@@ -85,7 +84,7 @@ if (isset($_POST["cari"])){
       <td><?= $s ["nisn"]; ?></td>
         <td><?= $s ["nama"]; ?></td>
         <td><?= $s ["jenis_kelamin"]; ?></td>
-        <td><?= $s ["nama_jurusan"];?></td>
+        <td><?= $s ["Nama_jurusan"];?></td>
         <td><?= $s ["nama_sekolah"];?></td>
         <td><a class="btn btn-primary" href="ubah_siswa.php?id=<?=$s["id"];?>" role="button">Ubah</a>
             <a class="btn btn-primary" href="siswa_hapus.php?id=<?=$s["id"];?>" role="button">Hapus</a></td>
@@ -95,16 +94,7 @@ if (isset($_POST["cari"])){
     <?php endforeach;?>
 </table>
 </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="../asset/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

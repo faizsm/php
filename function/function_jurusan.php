@@ -31,6 +31,8 @@
         $id=$data["id"];
         $na =$data["nama_jurusan"];
         $ubah = "UPDATE jurusan SET
+
+        
             nama_jurusan='$na'
 
             WHERE id_jurusan ='$id' ";
@@ -44,9 +46,17 @@
         return mysqli_affected_rows($db);
     }
 
-    function cari_jurusan($keyword){
-        $cari = "SELECT * FROM jurusan WHERE
-        nama_jurusan like '%$keyword%' ";
+    function cari_siswa($keyword){
+        $cari = "SELECT * FROM siswa WHERE
+        nama like '%$keyword%' OR
+        kelas like '%$keyword%' OR
+        alamat like '%$keyword%'OR
+        jurusan like '%$keyword%' OR
+        stat like '%$keyword%' OR
+        sekolah like '%$keyword%' OR
+        gender like '%$keyword%' OR
+        Agama like '%$keyword%' OR
+        nama_bapa like '%$keyword%' ";
         return query($cari);
     }
 ?>

@@ -1,7 +1,7 @@
 <?php
 require '../function/function_sekolah.php';
 if(isset($_POST["submit"])){
-    if(tambah_siswa($_POST)>0){
+    if(tambah_sekolah($_POST)>0){
         echo"
         <script>
             alert('data berhasil ditambah');
@@ -57,7 +57,7 @@ if(isset($_POST["submit"])){
     </div>
   </div>
 </nav>
-<h1>Tambah Jurusan</h1>
+<h1>Tambah Sekolah</h1>
 <form action="" method="post">
 <div class="form-floating mb-3">
   <input type="text" class="form-control" name= "nama_sekolah"id="nama_sekolah" placeholder="nama_sekolah">

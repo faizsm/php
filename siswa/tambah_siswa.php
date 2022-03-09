@@ -16,6 +16,8 @@ if(isset($_POST["submit"])){
             </script>";
     }
 }
+$jurusan=query("SELECT*FROM jurusan");
+$sekolah=query("SELECT*FROM sekolah");
 ?>
 
 <!doctype html>
@@ -72,19 +74,17 @@ if(isset($_POST["submit"])){
   <label for="jenis_kelamin">JENIS KELAMIN</label>
 </div>
 <select class="form-select" aria-label="Default select example" name="jurusan" id="jurusan">
-  <option selected>Pilih Jurusan</option>
-  <option value="1">Rpl</option>
-  <option value="2">Tkj</option>
-  <option value="3">Tbsm</option>
-  <option value="4">Perhotelan</option>
+<option selected>Pilih Jurusan</option>
+<?php foreach ($jurusan as $s): ?>
+  <option value="<?= $s ["id_jurusan"]; ?>"><?= $s ["Nama_jurusan"]; ?></option>
+  <?php endforeach;?>
 </select>
 <br>
 <select class="form-select" aria-label="Default select example" name="sekolah" id="sekolah">
   <option selected>Asal Sekolah</option>
-  <option value="1">SMKN 4 TASIKMALAYA</option>
-  <option value="2">SMKN 2 TASIKMALAYA</option>
-  <option value="3">SMKN 1 TASIKMALAYA</option>
-  <option value="4">SMKN 3 TASIKMALAYA</option>
+  <?php foreach ($sekolah as $s): ?>
+    <option value="<?= $s ["id_sekolah"]; ?>"><?= $s ["nama_sekolah"]; ?></option>
+  <?php endforeach;?>
 </select><br>
 <button type="submit" name="submit" class="btn btn-outline-dark">Tambah Data</button>
 </form>

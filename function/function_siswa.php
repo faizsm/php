@@ -32,7 +32,18 @@
     }
     
     function id_siswa($id){
-        return query("SELECT*FROM siswa WHERE id = $id")[0];
+        return query("SELECT 
+        a.id,
+        a.nisn,
+        a.nama,
+        a.jenis_kelamin,
+        b.id_jurusan,
+        b.Nama_jurusan,
+        c.id_sekolah,
+        c.nama_sekolah
+        FROM siswa AS a JOIN jurusan AS b ON a.id_jurusan = b.id_jurusan
+        JOIN sekolah AS c ON a.id_sekolah = c.id_sekolah 
+        WHERE a.id = $id")[0];
     }
     function ubah_siswa($data){
         global $db;
@@ -46,8 +57,8 @@
             nisn='$na',
             nama='$las',
             jenis_kelamin='$mat',
-            jurusan='$jurus',
-            sekolah='$tus'
+            id_jurusan='$jurus',
+            id_sekolah='$tus'
 
             WHERE id ='$id' ";
             mysqli_query($db,$ubah);
@@ -66,7 +77,7 @@
         nama like '%$keyword%' OR
         jenis_kelamin like '%$keyword%'OR
         id_jurusan like '%$keyword%' OR
-        id_sekolah like '%$keyword%' ";
+        id_sekolah like '%$keyword%'";
         return query($cari);
     }
 ?>

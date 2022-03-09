@@ -23,7 +23,7 @@
             return mysqli_affected_rows($db);
     }
     
-    function id_sekolah($id){
+    function id_jurusan($id){
         return query("SELECT*FROM sekolah WHERE id_sekolah = $id")[0];
     }
     function ubah_sekolah($data){
@@ -31,6 +31,8 @@
         $id=$data["id"];
         $na =$data["nama_sekolah"];
         $ubah = "UPDATE sekolah SET
+
+        
             nama_sekolah='$na'
 
             WHERE id_sekolah ='$id' ";
@@ -44,7 +46,7 @@
         return mysqli_affected_rows($db);
     }
 
-    function cari_jurusan($keyword){
+    function cari_sekolah($keyword){
         $cari = "SELECT * FROM sekolah WHERE
         nama_sekolah like '%$keyword%' ";
         return query($cari);

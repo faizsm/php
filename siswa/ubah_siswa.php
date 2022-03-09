@@ -19,6 +19,9 @@ if (ubah_siswa($_POST)>0){
    }
 }
 
+$jurusan=query("SELECT*FROM jurusan");
+$sekolah=query("SELECT*FROM sekolah");
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,7 +40,7 @@ if (ubah_siswa($_POST)>0){
     <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Home</a>
+    <a class="navbar-brand" href="../index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,7 +55,7 @@ if (ubah_siswa($_POST)>0){
             <li><a class="dropdown-item" href="../jurusan/sekolah.php">Data Sekolah</a></li>
           </ul>
           <li class="nav-item">
-          <a class="nav-link active" href="siswa/siswa.php">Data Siswa</a>
+          <a class="nav-link active" href="../siswa/siswa.php">Data Siswa</a>
         </li>
         </li>
       </ul>
@@ -75,12 +78,20 @@ if (ubah_siswa($_POST)>0){
   <label for="jenis_kelamin">JENIS KELAMIN</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "jurusan"id="jurusan" placeholder="jurusan" value ="<?=$sis ["id_jurusan"];?>">
-  <label for="jurusan">jurusan</label>
+<select class="form-select" aria-label="Default select example" name="jurusan" id="jurusan">
+<option value = "<?= $sis ["id_jurusan"];?>"selected> <?= $sis ["Nama_jurusan"];?></option>
+<?php foreach ($jurusan as $s): ?>
+  <option value="<?= $s ["id_jurusan"]; ?>"><?= $s ["Nama_jurusan"]; ?></option>
+  <?php endforeach;?>
+</select>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control"  name= "sekolah"id="sekolah" placeholder="sekolah" value ="<?=$sis ["id_sekolah"];?>">
-  <label for="sekolah">SEKOLAH</label>
+<select class="form-select" aria-label="Default select example" name="sekolah" id="jurusan">
+<option value = "<?= $sis ["id_sekolah"];?>"selected> <?= $sis ["nama_sekolah"];?></option>
+<?php foreach ($sekolah as $sk): ?>
+  <option value="<?= $sk ["id_sekolah"]; ?>"><?= $sk ["nama_sekolah"]; ?></option>
+  <?php endforeach;?>
+</select>
 </div>
 <button type="submit" name="submit" class="btn btn-outline-dark">UBAH</button>
 </form>

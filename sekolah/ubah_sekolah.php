@@ -1,6 +1,6 @@
 <?php
 require '../function/function_sekolah.php';
-$sis =id_sekolah($_GET["id"]);
+$sis =id_jurusan($_GET["id"]);
 if (isset($_POST["submit"])){
 if (ubah_sekolah($_POST)>0){
     echo"
@@ -20,7 +20,6 @@ if (ubah_sekolah($_POST)>0){
 }
 
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,22 +34,22 @@ if (ubah_sekolah($_POST)>0){
   </head>
   <body>
   <div class="container">
-    <h1>Tambahkan</h1>
+    <h1>Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../index.php">Home</a>
+    <a class="navbar-brand" href="index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Master Data
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="../jurusan/jurusan.php">Data Jurusan</a></li>
-            <li><a class="dropdown-item" href="../sekolah/sekolah.php">Data Sekolah</a></li>
+            <li><a class="dropdown-item" href="../jurusan/sekolah.php">Data Sekolah</a></li>
           </ul>
           <li class="nav-item">
           <a class="nav-link active" href="../siswa/siswa.php">Data Siswa</a>
@@ -60,15 +59,14 @@ if (ubah_sekolah($_POST)>0){
     </div>
   </div>
 </nav>
-<h1>Tambah Jurusan</h1>
+<h1>Tambah Data Siswa</h1>
 <form action="" method="post">
-<div class="form-floating mb-3">
 <input type="hidden" name= "id" value="<?=$sis ["id_sekolah"];?>">
-  <input type="text" class="form-control" name= "nama_sekolah"id="nama_sekolah" placeholder="nama_sekolah" 
-  value ="<?=$sis ["nama_sekolah"];?>">
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" name= "nama_sekolah" id="nama_sekolah" placeholder="nama_sekolah" value ="<?=$sis ["nama_sekolah"];?>">
   <label for="nama_sekolah">NAMA SEKOLAH</label>
 </div>
-<button type="submit" name="submit" class="btn btn-outline-dark">Ubah Data</button>
+<button type="submit" name="submit" class="btn btn-outline-dark">UBAH</button>
 </form>
 </div>
 

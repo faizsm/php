@@ -46,7 +46,7 @@ if (isset($_POST["cari"])){
     </div>
   </div>
 </nav>
-<a class="btn mt-3 mb-3  btn-dark" href="tambah_sekolah.php" role="button">Tambah Data Sekolah</a>
+<a class="btn mt-3 mb-3  btn-dark" href="tambah_sekolah.php" role="button">Tambah Data Jurusan</a>
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <form class="d-flex" action="" method="post">
@@ -60,7 +60,7 @@ if (isset($_POST["cari"])){
   <thead>
       <?php $i = 1; ?>
     <tr class="table-dark">
-      <th scope="col">Id Sekolah</th>
+      <th scope="col">Id Jurusan</th>
       <th scope="col">Nama Sekolah</th>
       <th scope="col">Aksi</th>
     </tr>
@@ -71,7 +71,7 @@ if (isset($_POST["cari"])){
       <th scope="row"><?php echo $i; ?></th>
       <td><?= $s ["nama_sekolah"]; ?></td>
         <td><a class="btn btn-primary" href="ubah_sekolah.php?id=<?=$s["id_sekolah"];?>" role="button">Ubah</a>
-            <a class="btn btn-primary" href="sekolah_hapus.php?id=<?=$s["id_sekolah"];?>" role="button">Hapus</a></td>
+            <a class="btn btn-primary" href="hapus_sekolah.php?id=<?=$s["id_sekolah"];?>" role="button">Hapus</a></td>
     </td>
   </tbody>
     <?php $i++; ?> 
@@ -83,5 +83,11 @@ if (isset($_POST["cari"])){
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="../asset/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
   </body>
 </html>

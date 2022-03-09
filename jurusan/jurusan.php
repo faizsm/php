@@ -69,9 +69,9 @@ if (isset($_POST["cari"])){
   <tbody>
     <tr>
       <th scope="row"><?php echo $i; ?></th>
-      <td><?= $s ["nama_jurusan"]; ?></td>
+      <td><?= $s ["Nama_jurusan"]; ?></td>
         <td><a class="btn btn-primary" href="ubah_jurusan.php?id=<?=$s["id_jurusan"];?>" role="button">Ubah</a>
-            <a class="btn btn-primary" href="jurusan_hapus.php?id=<?=$s["id_jurusan"];?>" role="button">Hapus</a></td>
+            <a class="btn btn-primary" href="hapus_jurusan.php?id=<?=$s["id_jurusan"];?>" role="button">Hapus</a></td>
     </td>
   </tbody>
     <?php $i++; ?> 
