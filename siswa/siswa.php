@@ -4,6 +4,7 @@ require "../function/function_siswa.php";
 $siswa=query("SELECT 
                       a.id,
                       a.nisn,
+                      a.foto,
                       a.nama,
                       a.jenis_kelamin,
                       b.Nama_jurusan,
@@ -70,7 +71,8 @@ if (isset($_POST["cari"])){
     <tr class="table-dark">
       <th scope="col">No</th>
       <th scope="col">Nisn</th>
-      <th scope="col">Nama</th>
+      <th scope="col">Foto</th>
+      <th scope="col">nama</th>
       <th scope="col">jenis_kelamin</th>
       <th scope="col">Jurusan</th>
       <th scope="col">Sekolah</th>
@@ -82,6 +84,7 @@ if (isset($_POST["cari"])){
     <tr>
       <th scope="row"><?php echo $i; ?></th>
       <td><?= $s ["nisn"]; ?></td>
+      <td><img src="../asset/img/<?php echo $s['foto'] ?>" width="150" height="150"></td>
         <td><?= $s ["nama"]; ?></td>
         <td><?= $s ["jenis_kelamin"]; ?></td>
         <td><?= $s ["Nama_jurusan"];?></td>

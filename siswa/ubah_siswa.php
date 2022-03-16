@@ -62,12 +62,20 @@ $sekolah=query("SELECT*FROM sekolah");
     </div>
   </div>
 </nav>
-<h1>Tambah Data Siswa</h1>
-<form action="" method="post">
+<h1>Ubah Data Siswa</h1>
+<form action="" method="post" enctype="multipart/form-data">
 <input type="hidden" name= "id" value="<?=$sis ["id"];?>">
 <div class="form-floating mb-3">
   <input type="text" class="form-control" name= "nisn"id="nisn" placeholder="nisn" value ="<?=$sis ["nisn"];?>">
   <label for="nisn">NISN</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" name= "foto"id="foto" placeholder="foto" value ="<?=$sis ["foto"];?>">
+  <label for="foto">foto</label>
+</div>
+<div class=" mb-3">
+<label for="formFile"  class="form-label">Tambah Foto</label>
+  <input class="form-control" type="file" name="foto" id="formFile">
 </div>
 <div class="form-floating mb-3">
   <input type="text" class="form-control"  name= "nama"id="nama" placeholder="nama" value ="<?=$sis ["nama"];?>">

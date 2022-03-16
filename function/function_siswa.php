@@ -18,23 +18,41 @@
         $mat=$data["jenis_kelamin"];
         $jurus=$data["jurusan"];
         $tus=$data["sekolah"];
-    $tambah="INSERT INTO siswa VALUES(
-        '',
-        '$na',
-        '$las',
-        '$mat',
-        '$jurus',
-        '$tus'
-    )";
-            
-            mysqli_query($db,$tambah);
+
+        $rand = rand();
+        $ekstensi =  array('png','jpg','jpeg','gif');
+        $filename = $_FILES['foto']['name'];
+        $ukuran = $_FILES['foto']['size'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        
+        if(!in_array($ext,$ekstensi) ) {
             return mysqli_affected_rows($db);
+        }else{
+            if($ukuran < 1044070){		
+                $xx = $rand.'_'.$filename;
+                move_uploaded_file($_FILES['foto']['tmp_name'], '../asset/img/'.$rand.'_'.$filename);
+                $tambah="INSERT INTO siswa VALUES(
+                    '',
+                    '$na',
+                    '$xx',
+                    '$las',
+                    '$mat',
+                    '$jurus',
+                    '$tus'
+                )";
+                mysqli_query($db,$tambah);
+                return mysqli_affected_rows($db);
+            }else{
+                return mysqli_affected_rows($db);
+            }
+        }
     }
     
     function id_siswa($id){
         return query("SELECT 
         a.id,
         a.nisn,
+        a.foto,
         a.nama,
         a.jenis_kelamin,
         b.id_jurusan,
@@ -53,6 +71,9 @@
         $mat=$data["jenis_kelamin"];
         $jurus=$data["jurusan"];
         $tus=$data["sekolah"];
+
+        
+
         $ubah = "UPDATE siswa SET
             nisn='$na',
             nama='$las',

@@ -60,10 +60,14 @@ $sekolah=query("SELECT*FROM sekolah");
   </div>
 </nav>
 <h1>Tambah Data Siswa</h1>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
 <div class="form-floating mb-3">
   <input type="text" class="form-control" name= "nisn"id="nisn" placeholder="nisn">
   <label for="nisn">NISN</label>
+</div>
+<div class=" mb-3">
+<label for="formFile"  class="form-label">Tambahkan Foto</label>
+  <input class="form-control" type="file" name="foto" id="formFile">
 </div>
 <div class="form-floating mb-3">
   <input type="text" class="form-control"  name= "nama"id="nama" placeholder="nama">

@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-    <h1>Selamat Datang</h1>
+    <h1 align="center">Selamat Datang</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Home</a>
