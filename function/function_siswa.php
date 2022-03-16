@@ -73,9 +73,38 @@
         $tus=$data["sekolah"];
 
         
+        $rand = rand();
+        $ekstensi =  array('png','jpg','jpeg','gif');
+        $filename = $_FILES['foto']['name'];
+        $ukuran = $_FILES['foto']['size'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+         
+        if(!in_array($ext,$ekstensi) ) {
+            return mysqli_affected_rows($db);
+        }else{
+            if($ukuran < 1044070){		
+                $xx = $rand.'_'.$filename;
+                move_uploaded_file($_FILES['foto']['tmp_name'], '../asset/img/'.$rand.'_'.$filename);
+                $ubah = "UPDATE siswa SET
+                nisn='$na',
+                foto='$xx',
+                nama='$las',
+                jenis_kelamin='$mat',
+                id_jurusan='$jurus',
+                id_sekolah='$tus'
+    
+                WHERE id ='$id' ";
+                mysqli_query($db,$ubah);
+                return mysqli_affected_rows($db);
+            }else{
+                return mysqli_affected_rows($db);
+            }
+        }
 
         $ubah = "UPDATE siswa SET
             nisn='$na',
+            foto='$xx'
             nama='$las',
             jenis_kelamin='$mat',
             id_jurusan='$jurus',

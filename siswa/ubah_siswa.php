@@ -70,8 +70,7 @@ $sekolah=query("SELECT*FROM sekolah");
   <label for="nisn">NISN</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" name= "foto"id="foto" placeholder="foto" value ="<?=$sis ["foto"];?>">
-  <label for="foto">foto</label>
+<img src="../asset/img/<?php echo $sis['foto'] ?>" width="150" height="150">
 </div>
 <div class=" mb-3">
 <label for="formFile"  class="form-label">Tambah Foto</label>
